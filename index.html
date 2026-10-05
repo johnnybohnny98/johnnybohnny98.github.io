@@ -11,6 +11,7 @@
 @font-face { font-family: "Surround"; src: url(ddonya/fonts/surround.woff2) format("woff2"); font-display: swap; }
 @font-face { font-family: "DdonyaText"; font-weight: 600; src: url(ddonya/fonts/text-600.woff2) format("woff2"); font-display: swap; }
 @font-face { font-family: "DdonyaText"; font-weight: 800; src: url(ddonya/fonts/text-800.woff2) format("woff2"); font-display: swap; }
+@font-face { font-family: "NaSerif"; font-weight: 600; src: url(na/fonts/serif-600.woff2) format("woff2"); font-display: swap; }
 :root { --ink: #1E2329; --sub: #4E5968; --mute: #8B95A1; --line: #E8EDF2; --bg: #FFFFFF; --card: #FFFFFF; --top: #EAF6FD; --skyD: #2F8FCB; --shadow: 0 1px 2px rgba(30,35,41,.04), 0 8px 24px rgba(30,80,120,.08); color-scheme: light; }
 @media (prefers-color-scheme: dark) {
   :root { --ink: #EEF2F6; --sub: #AAB6C3; --mute: #7D8A98; --line: #243241; --bg: #0E1621; --card: #16222F; --top: #13283A; --skyD: #7CC4EC; --shadow: 0 8px 24px rgba(0,0,0,.3); color-scheme: dark; }
@@ -28,6 +29,8 @@ h1 { font-family: "Surround", sans-serif; font-weight: 400; font-size: 44px; lin
 .app .d { font-size: 15px; color: var(--sub); }
 .app .go { margin-left: auto; width: 36px; height: 36px; border-radius: 50%; background: var(--top); color: var(--skyD); display: flex; align-items: center; justify-content: center; flex: 0 0 36px; }
 .app .go svg { width: 18px; height: 18px; }
+.app .t.na { font-family: "NaSerif", "Noto Serif KR", serif; font-weight: 600; }
+.app .d.na { font-family: -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; font-weight: 500; }
 footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 14px; color: var(--mute); }
 footer a { color: var(--sub); }
 </style>
@@ -42,6 +45,11 @@ footer a { color: var(--sub); }
   <a class="app" href="ddonya/">
     <img src="ddonya/img/icon-192.png" alt="">
     <span><span class="t">떴냐</span><br><span class="d">매진된 기차표, 취소표 나면 알려줘요</span></span>
+    <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></span>
+  </a>
+  <a class="app" href="na/">
+    <img src="na/img/icon-192.png" alt="">
+    <span><span class="t na">나</span><br><span class="d na">하루 한 문장으로 나를 알아가요</span></span>
     <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></span>
   </a>
 
