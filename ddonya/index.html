@@ -134,6 +134,8 @@ section.block { padding: 80px 0; }
 .notes li { display: flex; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--line); font-size: 15.5px; font-weight: 600; color: var(--sub); }
 .notes li:last-child { border-bottom: 0; }
 .notes li b { color: var(--ink); font-weight: 800; }
+.pause { margin-top: 18px; background: #FFF6D8; border: 1px solid #E9C766; border-radius: 16px; padding: 12px 14px; font-size: 15px; font-weight: 600; line-height: 1.55; color: #5A4300; word-break: keep-all; }
+.pause b { color: #3D2E00; font-weight: 800; }
 .notes svg { flex: 0 0 20px; width: 20px; height: 20px; margin-top: 2px; color: var(--skyD); }
 
 /* 맨 아래 */
@@ -191,10 +193,11 @@ footer .links { margin-top: 10px; display: flex; gap: 18px; font-size: 14px; fon
           안드로이드 · 구글 플레이 출시 준비 중
         </span>
       </div>
+      <p class="pause"><b>지금은 좌석 확인을 멈췄어요.</b> 2026년 10월 7일 코레일이 자동 조회를 막는 안내를 보여서, 코레일이 허락한 방식으로 운영할 수 있을 때까지 모든 좌석 확인을 멈췄어요.</p>
       <ul class="ticks">
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>로그인 없음</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>개인정보 안 받음</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>화면 꺼져도 확인</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>막히면 바로 멈춤</li>
       </ul>
     </div>
     <div class="visual" aria-hidden="true">
@@ -263,9 +266,9 @@ footer .links { margin-top: 10px; display: flex; gap: 18px; font-size: 14px; fon
         <p>자리가 나면 한 번 알려 드리고 멈춰요. 밤 10시부터 아침 7시까지는 소리 없이 와요. 설정에서 바꿀 수 있어요.</p>
       </div>
       <div class="card">
-        <div class="ico i-mint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19.5 14.5A8 8 0 0 1 9.5 4.5a8 8 0 1 0 10 10z"/></svg></div>
-        <h3>화면을 꺼도 확인해요</h3>
-        <p>폰을 주머니에 넣어 둬도 떴냐가 알아서 확인해요.</p>
+        <div class="ico i-mint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6.5" y="5" width="3.5" height="14" rx="1"/><rect x="14" y="5" width="3.5" height="14" rx="1"/></svg></div>
+        <h3>막히면 바로 멈춰요</h3>
+        <p>코레일이 막는 신호를 보이면 떴냐는 바로 멈추고 우회하지 않아요. 운영자가 모든 조회를 한 번에 멈출 수도 있어요.</p>
       </div>
       <div class="card">
         <div class="ico i-rose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5v-2a1 1 0 0 1 1-1h15a1 1 0 0 1 1 1v2a2.5 2.5 0 0 0 0 5v2a1 1 0 0 1-1 1h-15a1 1 0 0 1-1-1v-2a2.5 2.5 0 0 0 0-5z"/><path d="M14 6v12" stroke-dasharray="2 2.5"/></svg></div>
@@ -283,7 +286,7 @@ footer .links { margin-top: 10px; display: flex; gap: 18px; font-size: 14px; fon
     <ul class="notes">
       <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.5v.5"/></svg><span><b>떴냐는 한국철도공사(코레일)의 공식 앱이 아니에요.</b> 코레일과 관련이 없고, 정부나 공공기관을 대표하지 않아요.</span></li>
       <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.5v.5"/></svg><span><b>정보 출처:</b> 한국철도공사(코레일) 홈페이지 <a href="https://www.korail.com" rel="noopener" style="color:var(--skyD)">www.korail.com</a>에 공개된 좌석 정보예요. 알림이 온 뒤에도 다른 사람이 먼저 예매하면 자리가 없어질 수 있어요.</span></li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.5v.5"/></svg><span>떴냐는 로그인, 예매, 결제를 하지 않아요. 예매는 코레일 앱에서 직접 해요.</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.5v.5"/></svg><span>떴냐는 로그인, 예매, 결제를 하지 않고, 좌석을 대신 잡거나 승차권을 사고팔지 않아요. 예매는 코레일 앱에서 직접 해요.</span></li>
       <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.5v.5"/></svg><span>지금은 안드로이드만 지원해요.</span></li>
     </ul>
   </div>
