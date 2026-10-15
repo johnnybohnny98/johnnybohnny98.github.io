@@ -1,0 +1,4 @@
+NanumSquareRound (nsr-r.woff2, nsr-eb.woff2: 이 페이지에 쓰인 글자만 남긴 웹 글꼴)
+Copyright (c) 2017 NAVER Corporation. All rights reserved. Font designed by Sandoll Communications Inc.
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+License text: https://openfontlicense.org
