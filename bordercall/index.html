@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>보더콜 · 빠지고 싶은 자리에서 자연스럽게</title>
+<meta name="description" content="정한 시각에 진짜 같은 전화 모양 알람이 울려요. 회식·회의·모임에서 전화를 받으며 자연스럽게 일어나세요.">
+<meta property="og:title" content="보더콜">
+<meta property="og:description" content="빠지고 싶은 자리에서 자연스럽게 일어나요. 정한 시각에 진짜 같은 전화 모양 알람이 울려요.">
+<meta property="og:image" content="https://johnnybohnny98.github.io/bordercall/img/og.png">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="img/icon-64.png">
+<style>
+  @font-face { font-family: "BDC"; font-weight: 400; src: url(fonts/bdc-400.woff2) format("woff2"); font-display: swap; }
+  @font-face { font-family: "BDC"; font-weight: 600; src: url(fonts/bdc-600.woff2) format("woff2"); font-display: swap; }
+  @font-face { font-family: "BDC"; font-weight: 800; src: url(fonts/bdc-800.woff2) format("woff2"); font-display: swap; }
+  :root { --ink: #17181C; --body: #4C5058; --mute: #80858E; --line: #ECEEF1; --faint: #F3F4F6; --pop: #FFD45A; --bg: #FFFFFF; --card: #FFFFFF; --shadow: 0 1px 2px rgba(23,24,28,.04), 0 12px 32px rgba(23,24,28,.08); color-scheme: light; }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink: #F1F2F4; --body: #B7BCC4; --mute: #8A9099; --line: #2A2D33; --faint: #1C1E22; --pop: #C99A16; --bg: #111214; --card: #17191D; --shadow: 0 12px 32px rgba(0,0,0,.35); color-scheme: dark; }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--ink); font-family: "BDC", -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; line-height: 1.6; word-break: keep-all; }
+  main { max-width: 680px; margin: 0 auto; padding: 56px 20px 64px; }
+  .hl { background: linear-gradient(transparent 56%, var(--pop) 56%, var(--pop) 92%, transparent 92%); padding: 0 2px; }
+  .top { display: flex; align-items: center; gap: 14px; }
+  .top img { width: 64px; height: 64px; border-radius: 16px; box-shadow: var(--shadow); }
+  .top .name { font-weight: 800; font-size: 26px; letter-spacing: -0.02em; }
+  .top .soon { margin-left: auto; font-weight: 800; font-size: 13px; color: var(--ink); background: var(--faint); border-radius: 999px; padding: 6px 12px; }
+  h1 { margin-top: 36px; font-weight: 800; font-size: 40px; line-height: 1.25; letter-spacing: -0.03em; }
+  .lead { margin-top: 16px; font-size: 17px; color: var(--body); }
+  .hero-head { margin-top: 36px; display: flex; align-items: flex-end; gap: 8px; }
+  .hero-head h1 { margin-top: 0; flex: 1; }
+  .hero-head .collie { width: 96px; flex: 0 0 96px; margin-bottom: -6px; }
+  .phones { margin-top: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .phones figure { text-align: center; }
+  .phones img { width: 100%; border-radius: 22px; box-shadow: var(--shadow); border: 1px solid var(--line); display: block; }
+  .phones figcaption { margin-top: 10px; font-size: 13px; font-weight: 600; color: var(--mute); }
+  .label { margin-top: 52px; font-weight: 800; font-size: 14px; color: var(--mute); }
+  h2 { margin-top: 6px; font-weight: 800; font-size: 26px; letter-spacing: -0.02em; line-height: 1.3; }
+  .steps { margin-top: 18px; display: grid; gap: 10px; }
+  .step { display: flex; gap: 14px; align-items: flex-start; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 16px; }
+  .step b { flex: 0 0 28px; height: 28px; border-radius: 50%; background: var(--ink); color: var(--bg); font-size: 14px; display: flex; align-items: center; justify-content: center; }
+  .step .t { font-weight: 800; font-size: 16px; }
+  .step .d { font-size: 14px; color: var(--body); }
+  .two { margin-top: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .card { background: var(--faint); border-radius: 18px; padding: 16px; }
+  .card .t { font-weight: 800; font-size: 15px; }
+  .card ul { margin-top: 8px; padding-left: 18px; font-size: 14px; color: var(--body); }
+  .notes { margin-top: 14px; padding-left: 18px; font-size: 15px; color: var(--body); }
+  .notes li + li { margin-top: 6px; }
+  .contact { margin-top: 18px; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 18px; font-size: 15px; }
+  .contact a { color: var(--ink); font-weight: 800; }
+  footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 13px; color: var(--mute); }
+  footer a { color: var(--body); }
+  @media (max-width: 480px) {
+    h1 { font-size: 32px; }
+    .two { grid-template-columns: 1fr; }
+    .hero-head .collie { width: 72px; flex-basis: 72px; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <div class="top">
+    <img src="img/icon-192.png" alt="보더콜 아이콘">
+    <span class="name">보더콜</span>
+    <span class="soon">곧 출시 · 안드로이드 · 아이폰</span>
+  </div>
+
+  <div class="hero">
+    <div class="hero-head">
+      <h1>빠지고 싶은 자리에서<br><span class="hl">자연스럽게</span> 일어나요</h1>
+      <img class="collie" src="img/collie-hello.webp" alt="">
+    </div>
+    <p class="lead">끝나지 않는 회의, 일어날 타이밍을 놓친 회식과 모임. 보더콜은 정한 시각에 진짜 같은 전화 모양 알람을 울려 줘요. 전화를 받으며 자리에서 일어나면 돼요.</p>
+  </div>
+
+  <div class="phones">
+    <figure><img src="img/phone-home.webp" alt="누구 전화로, 언제 울릴지 고르는 홈 화면" loading="lazy"><figcaption>누구 · 언제 고르기</figcaption></figure>
+    <figure><img src="img/phone-ring.webp" alt="정한 시각에 뜨는 수신 화면" loading="lazy"><figcaption>정한 시각에 전화</figcaption></figure>
+    <figure><img src="img/phone-call.webp" alt="받은 뒤 통화 시간이 흘러가는 통화 화면" loading="lazy"><figcaption>통화 시간까지 진짜처럼</figcaption></figure>
+  </div>
+
+  <p class="label">이렇게 써요</p>
+  <h2>버튼 한 번이면 끝이에요</h2>
+  <div class="steps">
+    <div class="step"><b>1</b><div><div class="t">누구 전화로 빠질지 골라요</div><div class="d">엄마, 아빠, 팀장님, 회사, 택배기사님. 이름과 번호는 직접 바꿀 수 있어요.</div></div></div>
+    <div class="step"><b>2</b><div><div class="t">언제 울릴지 골라요</div><div class="d">10초, 30초, 1분, 5분 뒤 또는 원하는 시각.</div></div></div>
+    <div class="step"><b>3</b><div><div class="t">버튼을 누르고 기다려요</div><div class="d">그 시각에 전화 모양 알람이 울려요. 화면이 꺼져 있어도 울려요.</div></div></div>
+  </div>
+
+  <p class="label">예약할 틈도 없을 땐</p>
+  <h2><span class="hl">즉시 구조</span>로 앱을 안 켜고 불러요</h2>
+  <div class="two">
+    <div class="card"><div class="t">안드로이드</div><ul><li>측면 버튼 두 번 누르기</li><li>알림창 빠른 설정 버튼</li><li>앱 아이콘 꾹 누르기 메뉴</li></ul></div>
+    <div class="card"><div class="t">아이폰</div><ul><li>동작 버튼</li><li>뒷면 두 번 톡톡</li><li>"시리야, 보더콜 즉시 구조"</li></ul></div>
+  </div>
+
+  <p class="label">알아 두세요</p>
+  <ul class="notes">
+    <li>보더콜은 진짜 전화를 걸거나 받지 않아요. 정한 시각에 전화처럼 보이는 알람을 울려요.</li>
+    <li>이름, 번호, 예약 시각은 휴대폰 안에만 저장돼요. 회원가입이 없고, 정보를 밖으로 보내지 않아요.</li>
+  </ul>
+
+  <p class="label">문의</p>
+  <div class="contact">
+    쓰다가 이상한 점이나 바라는 점은 메일로 보내 주세요.<br>
+    <a href="mailto:johnnybohnny98@gmail.com">johnnybohnny98@gmail.com</a><br>
+    <a href="privacy.html">개인정보처리방침</a>
+  </div>
+
+  <footer>
+    보더콜 · 운영 자니스마켓 · <a href="../">자니스마켓 앱 모음</a><br>
+    © 2026 Johnny's Market
+  </footer>
+</main>
+</body>
+</html>
