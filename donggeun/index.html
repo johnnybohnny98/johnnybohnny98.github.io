@@ -4,241 +4,149 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
-<title>동근 · 하고 싶은 거 다 해보는 중</title>
-<meta name="description" content="앱 만들고, 게임 만들고, 이제 음악도. 하고 싶은 거 다 해보고 공유하는 동근이에요.">
+<title>동근이 만든 것</title>
+<meta name="description" content="하고 싶은 게 많아서 다 해보는 중. 동근이 만든 것들을 모아 뒀어요.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="동근 · 하고 싶은 거 다 해보는 중">
-<meta property="og:description" content="만든 것, 만드는 중인 것, 해보고 싶은 것">
+<meta property="og:title" content="동근이 만든 것">
+<meta property="og:description" content="하고 싶은 게 많아서 다 해보는 중">
 <meta property="og:url" content="https://johnnybohnny98.github.io/donggeun/">
 <meta property="og:image" content="https://johnnybohnny98.github.io/donggeun/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#F3F0E8" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F7F7F5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F0F0F" media="(prefers-color-scheme: dark)">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="preload" href="fonts/text-var.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 @font-face{font-family:"DonggeunText";src:url(fonts/text-var.woff2) format("woff2");font-weight:500 900;font-display:swap}
-:root{
-  --bg:#F3F0E8; --ink:#141414; --sub:#5B5B57; --mute:#94928B; --line:rgba(20,20,20,.09);
-  --card:#FFFFFF; --soft:#EAE6DC; --lime:#D4FF3A; --limeInk:#141414; --blue:#2F5BFF; --dim:#BDB9AE;
-  --shadow:0 1px 0 rgba(20,20,20,.04), 0 10px 30px -12px rgba(20,20,20,.18);
-}
-@media (prefers-color-scheme: dark){
-  :root{ --bg:#121212; --ink:#F2F0EA; --sub:#B5B2AA; --mute:#7C7A74; --line:rgba(255,255,255,.08);
-    --card:#1C1C1B; --soft:#262624; --lime:#D4FF3A; --limeInk:#121212; --blue:#8EA6FF; --dim:#4A4945;
-    --shadow:0 10px 30px -12px rgba(0,0,0,.6); }
-}
+:root{--bg:#F7F7F5;--ink:#111;--sub:#6B6B68;--mute:#A3A39E;--line:#E7E7E3;--card:#fff;--soft:#F0F0EC;--green:#1F9D55}
+@media (prefers-color-scheme:dark){:root{--bg:#0F0F0F;--ink:#F3F3F1;--sub:#A0A09C;--mute:#66665F;--line:#232322;--card:#171716;--soft:#222220;--green:#5BD18B}}
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%}
-body{
-  background:var(--bg); color:var(--ink);
-  font-family:"DonggeunText",-apple-system,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
-  line-height:1.55; word-break:keep-all; min-height:100vh; -webkit-font-smoothing:antialiased;
-}
-/* 종이 질감 */
-body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.35;mix-blend-mode:multiply;z-index:0;
-  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .22 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");}
-@media (prefers-color-scheme: dark){ body::before{mix-blend-mode:screen;opacity:.12} }
-main{position:relative;z-index:1;max-width:460px;margin:0 auto;padding:28px 16px calc(40px + env(safe-area-inset-bottom))}
-a{color:inherit}
+body{background:var(--bg);color:var(--ink);font-family:"DonggeunText",-apple-system,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  font-weight:500;line-height:1.5;word-break:keep-all;-webkit-font-smoothing:antialiased}
+main{max-width:480px;margin:0 auto;padding:56px 20px calc(48px + env(safe-area-inset-bottom))}
+a{color:inherit;text-decoration:none}
 
-/* 위: 사진 + 이름 */
-.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
-.stamp{font-size:12px;font-weight:700;letter-spacing:.02em;color:var(--sub);display:flex;align-items:center;gap:6px}
-.dot{width:8px;height:8px;border-radius:50%;background:#2BD46B;box-shadow:0 0 0 4px rgba(43,212,107,.18);animation:pulse 2.4s ease-in-out infinite}
-@keyframes pulse{50%{box-shadow:0 0 0 7px rgba(43,212,107,0)}}
+/* 머리: 사진 + 이름 + 한 줄 */
+header{display:flex;align-items:center;gap:14px}
+.avatar{position:relative;width:56px;height:56px;border-radius:50%;overflow:hidden;background:var(--soft);flex:0 0 56px;
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:22px;color:var(--sub)}
+.avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+h1{font-size:22px;font-weight:800;letter-spacing:-.03em;line-height:1.2}
+.handle{font-size:14px;color:var(--sub)}
+/* ▼ 소개 한 줄 */
+.bio{margin-top:22px;font-size:26px;font-weight:800;letter-spacing:-.035em;line-height:1.3}
+.bio span{color:var(--mute)}
 
-.hero{position:relative;border-radius:32px;overflow:hidden;background:var(--card);box-shadow:var(--shadow);border:1px solid var(--line)}
-.photo{position:relative;aspect-ratio:4/4.3;background:
-  radial-gradient(120% 90% at 20% 10%, #FFD9B8 0, transparent 55%),
-  radial-gradient(100% 80% at 90% 30%, #C9D6FF 0, transparent 55%),
-  radial-gradient(120% 90% at 50% 100%, #D4FF3A 0, transparent 60%), #EDE9DF;}
-@media (prefers-color-scheme: dark){ .photo{background:
-  radial-gradient(120% 90% at 20% 10%, #5A3A26 0, transparent 55%),
-  radial-gradient(100% 80% at 90% 30%, #26315A 0, transparent 55%),
-  radial-gradient(120% 90% at 50% 100%, #4C5C10 0, transparent 60%), #1C1C1B;} }
-.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.photo .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:rgba(20,20,20,.55);font-weight:700;font-size:13px}
-.photo .ph b{font-size:96px;line-height:1;font-weight:900;letter-spacing:-.06em;color:rgba(20,20,20,.82)}
-@media (prefers-color-scheme: dark){ .photo .ph{color:rgba(255,255,255,.5)} .photo .ph b{color:rgba(255,255,255,.85)} }
-.photo::after{content:"";position:absolute;inset:auto 0 0 0;height:55%;background:linear-gradient(180deg,transparent,rgba(0,0,0,.55))}
-.name{position:absolute;left:22px;right:22px;bottom:18px;z-index:2;color:#fff}
-.name h1{font-size:56px;line-height:.95;font-weight:900;letter-spacing:-.05em}
-.name h1 small{font-size:20px;font-weight:700;letter-spacing:-.01em;opacity:.85;margin-left:8px;vertical-align:6px}
-.name p{margin-top:8px;font-size:15px;font-weight:600;opacity:.92}
-.sticker{position:absolute;top:16px;right:16px;z-index:2;background:var(--lime);color:var(--limeInk);font-weight:800;font-size:13px;
-  padding:8px 12px;border-radius:999px;transform:rotate(4deg);box-shadow:0 6px 16px -6px rgba(0,0,0,.35)}
+/* 목록 */
+.label{margin:40px 4px 10px;display:flex;justify-content:space-between;font-size:13px;font-weight:700;color:var(--mute)}
+.list{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+.row{display:flex;align-items:center;gap:14px;padding:14px 16px;transition:background .15s}
+.row + .row{border-top:1px solid var(--line)}
+a.row:hover{background:var(--soft)}
+a.row:active{background:var(--soft)}
+.icon{width:48px;height:48px;border-radius:12px;flex:0 0 48px;box-shadow:0 0 0 1px var(--line);object-fit:cover}
+.icon.blank{display:flex;align-items:center;justify-content:center;background:var(--soft);box-shadow:none;font-size:22px}
+.txt{min-width:0;flex:1}
+.name{font-size:16px;font-weight:800;letter-spacing:-.02em;display:flex;align-items:center;gap:8px}
+.kind{font-size:11px;font-weight:700;color:var(--mute);letter-spacing:0}
+.desc{font-size:14px;color:var(--sub);margin-top:1px}
+.st{font-size:12.5px;font-weight:700;color:var(--sub);margin-top:5px;display:flex;align-items:center;gap:6px}
+.st i{width:6px;height:6px;border-radius:50%;background:var(--green);display:inline-block}
+.st.wip i{background:none;border:1.5px solid var(--sub)}
+.st.off i{background:var(--mute)}
+.go{color:var(--mute);flex:0 0 auto}
+.go svg{width:18px;height:18px;display:block}
+.row.off .icon{filter:grayscale(1);opacity:.6}
+.row.off .name,.row.off .desc{color:var(--mute)}
 
-/* 소개 */
-.intro{padding:20px 22px 22px}
-.intro p{font-size:17px;font-weight:600;line-height:1.6;letter-spacing:-.01em}
-.intro p + p{margin-top:6px;color:var(--sub);font-size:15px;font-weight:500}
-
-/* SNS 버튼 */
-.sns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
-.btn{display:flex;align-items:center;justify-content:center;gap:8px;height:56px;border-radius:20px;text-decoration:none;font-weight:800;font-size:15px;
-  background:var(--ink);color:var(--bg);transition:transform .15s ease}
-.btn.alt{background:var(--card);color:var(--ink);border:1px solid var(--line);box-shadow:var(--shadow)}
-.btn svg{width:20px;height:20px}
-.btn:active,.card:active{transform:scale(.98)}
-
-/* 흐르는 띠 */
-.ticker{margin:18px -16px 0;overflow:hidden;border-block:1px solid var(--line);background:var(--lime);color:var(--limeInk);transform:rotate(-1.2deg)}
-.ticker div{display:flex;gap:28px;width:max-content;padding:10px 0;font-weight:900;font-size:15px;letter-spacing:-.01em;animation:slide 22s linear infinite}
-.ticker span::after{content:"✦";margin-left:28px;font-weight:400}
-@keyframes slide{to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion: reduce){ .ticker div,.dot{animation:none} }
-
-/* 섹션 */
-h2{margin:30px 6px 10px;font-size:13px;font-weight:800;letter-spacing:.04em;color:var(--mute);display:flex;justify-content:space-between;align-items:baseline}
-h2 em{font-style:normal;font-weight:600;letter-spacing:0}
-
-/* 투두 */
-.todo{background:var(--card);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);padding:6px 8px}
-.todo li{list-style:none;display:flex;align-items:center;gap:14px;padding:14px 12px;border-radius:18px}
-.todo li + li{border-top:1px dashed var(--line)}
-.box{flex:0 0 26px;height:26px;border-radius:9px;border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:15px}
-.done .box{background:var(--ink);color:var(--bg)}
-.doing .box{border-color:var(--blue);color:var(--blue);border-style:dashed}
-.todo .t{font-size:16px;font-weight:700;letter-spacing:-.01em}
-.todo .s{display:block;font-size:13px;color:var(--sub);font-weight:500;margin-top:1px}
-.tag{margin-left:auto;font-size:12px;font-weight:800;padding:5px 9px;border-radius:999px;background:var(--soft);color:var(--sub);white-space:nowrap}
-.doing .tag{background:var(--blue);color:#fff}
-
-/* 만든 것 */
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.card{position:relative;display:flex;flex-direction:column;gap:10px;padding:16px;border-radius:26px;background:var(--card);border:1px solid var(--line);
-  box-shadow:var(--shadow);text-decoration:none;min-height:176px;transition:transform .15s ease}
-.card.wide{grid-column:span 2;flex-direction:row;align-items:center;min-height:0}
-.card img{width:52px;height:52px;border-radius:14px;box-shadow:0 0 0 1px var(--line)}
-.card .t{font-size:19px;font-weight:900;letter-spacing:-.03em;line-height:1.2}
-.card .d{font-size:13.5px;color:var(--sub);font-weight:500;line-height:1.45}
-.card .st{margin-top:auto;display:flex;flex-wrap:wrap;gap:5px}
-.chip{font-size:11.5px;font-weight:800;padding:4px 8px;border-radius:999px;background:var(--soft);color:var(--sub)}
-.chip.on{background:#DFF8E7;color:#127A3A}
-.chip.off{background:#F3E1DE;color:#A33A2B}
-@media (prefers-color-scheme: dark){ .chip.on{background:#173A24;color:#7BE39F} .chip.off{background:#3D211D;color:#F09A8C} }
-.arrow{position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:50%;background:var(--soft);display:flex;align-items:center;justify-content:center}
-.arrow svg{width:14px;height:14px}
-.card.closed{background:transparent;box-shadow:none;border-style:dashed}
-.card.closed img{filter:grayscale(1);opacity:.7}
-.card.closed .t{text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:var(--dim)}
-.card.wip{background:repeating-linear-gradient(-45deg,var(--card) 0 12px,var(--soft) 12px 24px)}
-.wipicon{width:52px;height:52px;border-radius:14px;background:var(--ink);color:var(--bg);display:flex;align-items:center;justify-content:center;font-size:26px;flex:0 0 52px}
-.card.wide .body{display:flex;flex-direction:column;gap:3px}
-
-/* 연락 */
-.contact{margin-top:10px;display:flex;align-items:center;gap:14px;padding:18px;border-radius:26px;background:var(--ink);color:var(--bg);text-decoration:none}
-.contact .t{font-size:17px;font-weight:800;letter-spacing:-.01em}
-.contact .d{font-size:13.5px;opacity:.7;font-weight:500}
-.contact .go{margin-left:auto;width:40px;height:40px;border-radius:50%;background:var(--lime);color:var(--limeInk);display:flex;align-items:center;justify-content:center;flex:0 0 40px}
-.contact .go svg{width:18px;height:18px}
-
-footer{margin-top:28px;text-align:center;font-size:12px;color:var(--mute);font-weight:500}
-
-/* 등장 */
-.rise{opacity:0;transform:translateY(12px);animation:rise .6s cubic-bezier(.2,.7,.2,1) forwards}
-@keyframes rise{to{opacity:1;transform:none}}
-@media (prefers-reduced-motion: reduce){ .rise{animation:none;opacity:1;transform:none} }
+/* 아래: SNS + 연락 */
+.links{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.links a{height:52px;border-radius:16px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:15px;font-weight:700;
+  background:var(--card);border:1px solid var(--line)}
+.links a.mail{grid-column:span 2;background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.links svg{width:18px;height:18px}
+footer{margin-top:28px;text-align:center;font-size:12px;color:var(--mute)}
 </style>
 </head>
 <body>
 <main>
 
-  <div class="top rise">
-    <span class="stamp"><span class="dot"></span>2026년 11월, 지금 하는 중</span>
-  </div>
+  <header>
+    <!-- 사진: img/me.jpg 를 넣으면 자동으로 보여요 -->
+    <div class="avatar">동<img src="img/me.jpg" alt="" onerror="this.remove()"></div>
+    <div>
+      <h1>동근</h1>
+      <div class="handle">@justdo_donggeun</div>
+    </div>
+  </header>
 
-  <section class="hero rise" style="animation-delay:.05s">
-    <div class="photo">
-      <!-- 사진: img/me.jpg 를 넣으면 자동으로 보여요. 없으면 아래 '동' 글자가 보여요. -->
-      <div class="ph"><b>동</b>사진 들어갈 자리</div>
-      <img src="img/me.jpg" alt="동근 사진" onerror="this.remove()">
-      <span class="sticker">하고 싶은 거 다 해보자</span>
-      <div class="name">
-        <h1>동근<small>Johnny</small></h1>
-        <p>앱 만들고, 게임 만들고, 이제 음악도</p>
+  <!-- ▼ 소개 한 줄 (여기만 바꾸면 돼요) -->
+  <p class="bio">하고 싶은 게 많아서<br>다 해보는 중.<br><span>잘 되든 망하든 여기 다 올려요.</span></p>
+
+  <div class="label"><span>만든 것</span><span>5</span></div>
+  <div class="list">
+
+    <a class="row" href="https://apps.apple.com/kr/app/%EB%B3%B4%EB%8D%94%EC%BD%9C/id6825842247" target="_blank" rel="noopener">
+      <img class="icon" src="../bordercall/img/icon-192.png" alt="">
+      <div class="txt">
+        <div class="name">보더콜 <span class="kind">앱</span></div>
+        <div class="desc">빠지고 싶은 자리에서 진짜 같은 전화가 와요</div>
+        <div class="st"><i></i>아이폰 · 안드로이드 준비 중</div>
+      </div>
+      <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+    </a>
+
+    <a class="row" href="../na/" target="_blank" rel="noopener">
+      <img class="icon" src="../na/img/icon-192.png" alt="">
+      <div class="txt">
+        <div class="name">나 <span class="kind">앱</span></div>
+        <div class="desc">하루 한 문장으로 나를 알아가요</div>
+        <div class="st"><i></i>아이폰 · 안드로이드</div>
+      </div>
+      <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+    </a>
+
+    <a class="row" href="https://dharani-landing-tlxw.vercel.app/" target="_blank" rel="noopener">
+      <img class="icon" src="img/dharani-192.png" alt="">
+      <div class="txt">
+        <div class="name">다라니 <span class="kind">앱</span></div>
+        <div class="desc">불교 기반 AI 마음돌봄. 처음 만든 앱</div>
+        <div class="st"><i></i>아이폰 · 안드로이드</div>
+      </div>
+      <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+    </a>
+
+    <div class="row">
+      <span class="icon blank">🎮</span>
+      <div class="txt">
+        <div class="name">로블록스 게임 <span class="kind">게임</span></div>
+        <div class="desc">나오면 여기에 올릴게요</div>
+        <div class="st wip"><i></i>만드는 중</div>
       </div>
     </div>
-    <!-- ▼ 소개글: 이 두 줄만 바꾸면 돼요 (확정본 오면 교체) -->
-    <div class="intro">
-      <p>하고 싶은 게 많아서, 하나씩 다 해보는 중이에요.</p>
-      <p>만든 것도, 접은 것도 그대로 올려요.</p>
-    </div>
-    <!-- ▲ 소개글 끝 -->
-  </section>
 
-  <!-- SNS: 아이디가 바뀌면 아래 두 주소의 johnny_threads 만 바꾸면 돼요 -->
-  <nav class="sns rise" style="animation-delay:.1s">
-    <a class="btn" href="https://www.instagram.com/johnny_threads/" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
-      인스타그램
+    <a class="row off" href="../ddonya/" target="_blank" rel="noopener">
+      <img class="icon" src="../ddonya/img/icon-192.png" alt="">
+      <div class="txt">
+        <div class="name">떴냐 <span class="kind">앱</span></div>
+        <div class="desc">기차 취소표 알림</div>
+        <div class="st off"><i></i>34일 만에 접음</div>
+      </div>
+      <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
     </a>
-    <a class="btn alt" href="https://www.threads.com/@johnny_threads" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M16.5 11.2c-.3-2.6-2-3.9-4.4-3.9-2 0-3.4 1-4 2.5"/><path d="M16.6 11.3c-4-.9-7.3.2-7 2.6.3 2.4 5.4 2.5 6.5-1.4.8-3-.2-8-5-8C6.5 4.5 4.5 7.5 4.5 12s2.2 7.5 6.7 7.5c3.6 0 6.3-1.7 7-4.6"/></svg>
-      스레드
-    </a>
+
+  </div>
+
+  <nav class="links">
+    <a href="https://www.instagram.com/justdo_donggeun/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>인스타그램</a>
+    <a href="https://www.threads.com/@justdo_donggeun" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M16.5 11.2c-.3-2.6-2-3.9-4.4-3.9-2 0-3.4 1-4 2.5"/><path d="M16.6 11.3c-4-.9-7.3.2-7 2.6.3 2.4 5.4 2.5 6.5-1.4.8-3-.2-8-5-8C6.5 4.5 4.5 7.5 4.5 12s2.2 7.5 6.7 7.5c3.6 0 6.3-1.7 7-4.6"/></svg>스레드</a>
+    <a class="mail" href="mailto:johnnybohnny98@gmail.com">같이 만들자는 연락은 메일로</a>
   </nav>
 
-  <div class="ticker rise" style="animation-delay:.15s" aria-hidden="true">
-    <div>
-      <span>앱 만들기</span><span>로블록스 게임</span><span>AI로 음악</span><span>영어로 말하기</span><span>하고 싶은 거 다 해보자</span>
-      <span>앱 만들기</span><span>로블록스 게임</span><span>AI로 음악</span><span>영어로 말하기</span><span>하고 싶은 거 다 해보자</span>
-    </div>
-  </div>
-
-  <h2 class="rise" style="animation-delay:.2s">투두리스트 <em>계속 늘어나요</em></h2>
-  <ul class="todo rise" style="animation-delay:.22s">
-    <li class="done"><span class="box">✓</span><span><span class="t">앱 만들기</span><span class="s">4개 만들고 1개 접었어요</span></span><span class="tag">했다</span></li>
-    <li class="doing"><span class="box">…</span><span><span class="t">로블록스 게임 만들기</span><span class="s">지금 만드는 중</span></span><span class="tag">하는 중</span></li>
-    <li><span class="box"></span><span><span class="t">AI로 음악 만들기</span><span class="s">노래는 못 해도 음악은 좋아해서</span></span><span class="tag">해볼 것</span></li>
-    <li><span class="box"></span><span><span class="t">영어로 말하기</span><span class="s">영상으로 말해 볼 거예요</span></span><span class="tag">해볼 것</span></li>
-  </ul>
-
-  <h2 class="rise" style="animation-delay:.26s">만든 것 <em>눌러서 써 보기</em></h2>
-  <div class="grid">
-    <a class="card rise" style="animation-delay:.28s" href="https://apps.apple.com/kr/app/%EB%B3%B4%EB%8D%94%EC%BD%9C/id6825842247" target="_blank" rel="noopener">
-      <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
-      <img src="../bordercall/img/icon-192.png" alt="">
-      <span class="t">보더콜</span>
-      <span class="d">빠지고 싶은 자리에서 진짜 같은 전화가 와요</span>
-      <span class="st"><span class="chip on">아이폰</span><span class="chip">안드로이드 준비 중</span></span>
-    </a>
-    <a class="card rise" style="animation-delay:.3s" href="../na/" target="_blank" rel="noopener">
-      <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
-      <img src="../na/img/icon-192.png" alt="">
-      <span class="t">나</span>
-      <span class="d">하루 한 문장으로 나를 알아가요</span>
-      <span class="st"><span class="chip on">아이폰</span><span class="chip on">안드로이드</span></span>
-    </a>
-    <a class="card rise" style="animation-delay:.32s" href="https://dharani-landing-tlxw.vercel.app/" target="_blank" rel="noopener">
-      <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
-      <img src="img/dharani-192.png" alt="">
-      <span class="t">다라니</span>
-      <span class="d">불교 기반 AI 마음돌봄 앱. 처음 만든 앱이에요</span>
-      <span class="st"><span class="chip on">아이폰</span><span class="chip on">안드로이드</span></span>
-    </a>
-    <a class="card closed rise" style="animation-delay:.34s" href="../ddonya/" target="_blank" rel="noopener">
-      <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
-      <img src="../ddonya/img/icon-192.png" alt="">
-      <span class="t">떴냐</span>
-      <span class="d">기차 취소표 알림. 코레일 허락을 못 받아 34일 만에 접었어요</span>
-      <span class="st"><span class="chip off">접음</span></span>
-    </a>
-    <div class="card wide wip rise" style="animation-delay:.36s">
-      <span class="wipicon">🎮</span>
-      <span class="body"><span class="t">로블록스 게임</span><span class="d">만드는 중이에요. 나오면 여기에 올릴게요</span></span>
-    </div>
-  </div>
-
-  <h2 class="rise" style="animation-delay:.4s">같이 하기</h2>
-  <!-- 연락처: 앱 소개 페이지에 이미 공개된 메일 -->
-  <a class="contact rise" style="animation-delay:.42s" href="mailto:johnnybohnny98@gmail.com">
-    <span><span class="t">같이 만들어요</span><br><span class="d">일 얘기, 협업 제안은 메일로</span></span>
-    <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-  </a>
-
-  <footer>마지막 업데이트 2026.11.15</footer>
+  <footer>2026.11.15 업데이트</footer>
 </main>
 </body>
 </html>
